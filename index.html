@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedAppoint | Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="logo">✚ MedAppoint</div>
+    <nav>
+      <a href="index.html" class="active">▦ Dashboard</a>
+      <a href="appointment.html">▣ Appointments</a>
+      <a href="doctors.html">⚕ Find Doctors</a>
+      <a href="book-appointment.html">＋ Book Appointment</a>
+      <a href="reminders.html">◷ Reminders</a><a href="calendar.html">▦ Calendar</a><a href="history.html">▤ History</a>
+    </nav>
+  </aside>
+
+  <main id="dashboard">
+    <header class="topbar">
+      <div>
+        <h1>Dashboard</h1>
+        <p class="muted" id="today"></p>
+      </div>
+      <div class="profile">👤 Patient Portal</div>
+    </header>
+
+    <section class="welcome">
+      <h2>Welcome back! 👋</h2>
+      <p>Manage your healthcare appointments in one place. Stay organized and never miss an important visit.</p>
+      <a class="button primary" href="book-appointment.html">＋ Add Appointment</a>
+    </section>
+
+    <section class="stats">
+      <div class="stat-card"><p>Upcoming Appointments</p><h2 class="blue" id="upcomingCount">0</h2></div>
+      <div class="stat-card"><p>Confirmed Appointments</p><h2 class="green" id="confirmedCount">0</h2></div>
+      <div class="stat-card"><p>Pending Appointments</p><h2 class="orange" id="pendingCount">0</h2></div>
+    </section>
+
+    <section class="panel" id="appointments">
+      <div class="panel-head">
+        <h2>Service</h2>
+        <div class="controls">
+          <input type="search" id="search" placeholder="Search doctor..." oninput="renderDashboardAppointments()">
+          <select id="statusFilter" onchange="renderDashboardAppointments()">
+            <option value="all">All statuses</option>
+            <option value="Confirmed">Confirmed</option>
+            <option value="Pending">Pending</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+          <a class="button add-btn" href="book-appointment.html">＋ Add New</a>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Doctor / Clinic</th><th>Date</th><th>Time</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="appointmentRows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Appointment Calendar | MedAppoint</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.calendar-panel{background:#fff;border:1px solid #e8eef5;border-radius:14px;padding:22px;box-shadow:0 3px 12px #18395b0b}
+.month-header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+.month-header h2{color:#123b68;text-align:center}
+.month-header button{background:#1765a8;color:#fff}
+.weekdays,.days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;text-align:center}
+.weekdays div{font-weight:bold;color:#1765a8;padding:9px 0}
+.days div{min-height:64px;padding:10px 2px;border-radius:8px;background:#f4f7fb;cursor:pointer}
+.days div:hover{background:#dceeff}
+.days .today{outline:2px solid #1769aa;font-weight:bold}
+.days .has-appointment{background:#d9f5e5;color:#166534;font-weight:bold}
+.days .selected{box-shadow:inset 0 0 0 2px #1769aa}
+#details{margin-top:18px;padding:15px;background:#eaf3fc;border-radius:8px;line-height:1.7}
+@media(max-width:550px){.calendar-panel{padding:10px}.days div{min-height:48px;padding:8px 0;font-size:13px}.weekdays,.days{gap:3px}.month-header h2{font-size:18px}}
+</style>
+</head>
+<body><div class="layout">
+<aside class="sidebar"><div class="logo">✚ MedAppoint</div><nav>
+<a href="index.html">▦ Dashboard</a><a href="appointment.html">▣ Appointments</a><a href="doctors.html">⚕ Find Doctors</a><a href="book-appointment.html">＋ Book Appointment</a><a href="reminders.html">◷ Reminders</a><a class="active" href="calendar.html">▦ Calendar</a><a href="history.html">▤ History</a>
+</nav></aside>
+<main>
+<header class="topbar"><div><h1>Appointment Calendar</h1><p class="muted">View your booked appointments by date.</p></div><div class="profile">👤 Patient Portal</div></header>
+<section class="calendar-panel">
+<div class="month-header"><button type="button" onclick="changeMonth(-1)">&#10094; Prev</button><h2 id="monthYear"></h2><button type="button" onclick="changeMonth(1)">Next &#10095;</button></div>
+<div class="weekdays"><div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div></div>
+<div class="days" id="calendarDays"></div>
+<div id="details" aria-live="polite">Select a date to view appointment details.</div>
+</section>
+<footer>© 2026 MedAppoint | Your Health, Our Priority</footer>
+</main></div>
+<script src="app.js"></script><script src="calendar.js"></script></body></html>

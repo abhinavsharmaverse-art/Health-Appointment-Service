@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Appointment History | MedAppoint</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.history-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:22px}
+.history-summary .stat-card h2{color:#1765a8}
+.history-empty{display:none;text-align:center;padding:24px;color:#718096}
+@media(max-width:600px){.history-summary{grid-template-columns:1fr}}
+</style>
+</head>
+<body><div class="layout">
+<aside class="sidebar"><div class="logo">✚ MedAppoint</div><nav>
+<a href="index.html">▦ Dashboard</a><a href="appointment.html">▣ Appointments</a><a href="doctors.html">⚕ Find Doctors</a><a href="book-appointment.html">＋ Book Appointment</a><a href="reminders.html">◷ Reminders</a><a href="calendar.html">▦ Calendar</a><a class="active" href="history.html">▤ History</a>
+</nav></aside>
+<main>
+<header class="topbar"><div><h1>Appointment History</h1><p class="muted">Review completed and cancelled appointments.</p></div><div class="profile">👤 Patient Portal</div></header>
+<section class="history-summary">
+<div class="stat-card"><p>Total History</p><h2 id="totalCount">0</h2></div>
+<div class="stat-card"><p>Completed / Past</p><h2 id="completedCount">0</h2></div>
+<div class="stat-card"><p>Cancelled</p><h2 id="cancelledCount">0</h2></div>
+</section>
+<section class="panel">
+<div class="panel-head"><h2>Past Appointments</h2><div class="controls">
+<input type="search" id="search" placeholder="Search doctor or clinic..." aria-label="Search history">
+<select id="statusFilter" aria-label="Filter by status"><option value="all">All records</option><option value="Completed">Completed / Past</option><option value="Cancelled">Cancelled</option></select>
+</div></div>
+<div class="table-wrap"><table><thead><tr><th>Doctor</th><th>Clinic</th><th>Date</th><th>Time</th><th>Status</th></tr></thead><tbody id="historyBody"></tbody></table></div>
+<p class="history-empty" id="emptyMessage">No appointment history found.</p>
+</section>
+<footer>© 2026 MedAppoint | Your Health, Our Priority</footer>
+</main></div>
+<script src="app.js"></script><script src="history.js"></script></body></html>
